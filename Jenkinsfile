@@ -33,12 +33,6 @@ pipeline {
                     }
                 }
             }
-
-            stage('other-single-stage') {
-              steps {
-                sh 'echo \'dummy text\''
-              }
-            }
         }
     }
     stage('second-solo') {
