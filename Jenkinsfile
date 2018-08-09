@@ -4,6 +4,7 @@ pipeline {
     stage('first-solo') {
       steps {
         sh 'echo \'dummy text\''
+        sh 'ping -c 30 localhost'
       }
     }
     stage('parent') {
@@ -11,6 +12,7 @@ pipeline {
             stage('single-stage') {
               steps {
                 sh 'echo \'dummy text\''
+                sh 'ping -c 30 localhost'
               }
             }
             
@@ -19,16 +21,19 @@ pipeline {
                     stage('first-sequential-stage') {
                       steps {
                         sh 'echo \'dummy text\''
+                        sh 'ping -c 30 localhost'
                       }
                     }
                     stage('second-sequential-stage') {
                       steps {
                         sh 'echo \'dummy text\''
+                        sh 'ping -c 30 localhost'
                       }
                     }
                     stage('third-sequential-stage') {
                       steps {
                         sh 'echo \'dummy text\''
+                        sh 'ping -c 30 localhost'
                       }
                     }
                 }
@@ -37,6 +42,7 @@ pipeline {
             stage('other-single-stage') {
               steps {
                 sh 'echo \'dummy text\''
+                sh 'ping -c 30 localhost'
               }
             }
         }
@@ -44,6 +50,7 @@ pipeline {
     stage('second-solo') {
       steps {
         sh 'echo \'dummy text\''
+        sh 'ping -c 30 localhost'
       }
     }
   }
