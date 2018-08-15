@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('first-solo') {
-      steps {
-        sh 'echo \'dummy text\''
-      }
-    }
     stage('parent') {
         parallel {
             stage('single-stage') {
@@ -40,6 +35,11 @@ pipeline {
               }
             }
         }
+    }
+    stage('first-solo') {
+      steps {
+        sh 'echo \'dummy text\''
+      }
     }
   }
 }
