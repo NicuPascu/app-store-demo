@@ -1,45 +1,108 @@
 pipeline {
   agent any
   stages {
-    stage('parent') {
-        parallel {
-            stage('single-stage') {
+    stage('Continuous') {
+      parallel {
+        stage('Windows') {
+          stages
+          {
+            stage('Build')
+            {
               steps {
                 sh 'echo \'dummy text\''
               }
             }
-            
-            stage('multiple-stages') {
-                stages {
-                    stage('first-sequential-stage') {
-                      steps {
-                        sh 'echo \'dummy text\''
-                      }
-                    }
-                    stage('second-sequential-stage') {
-                      steps {
-                        sh 'echo \'dummy text\''
-                      }
-                    }
-                    stage('third-sequential-stage') {
-                      steps {
-                        sh 'echo \'dummy text\''
-                      }
-                    }
+            stage('Test')
+            {
+              steps {
+                sh 'echo \'dummy text\''          
+              }
+              post {
+                always {
+                  sh 'echo \'dummy text\''
                 }
+              }
             }
-
-            stage('other-single-stage') {
+          }
+        }
+        stage('Linux') {
+          stages
+          {
+            stage('Build')
+            {
               steps {
                 sh 'echo \'dummy text\''
               }
             }
+            stage('Test')
+            {          
+              steps {
+                sh 'echo \'dummy text\''
+              }
+              post {
+                always {
+                  sh 'echo \'dummy text\''
+                }
+              }             
+            }
+            stage('Coverage')
+            {
+              steps {
+                sh 'echo \'dummy text\''
+              }
+              post {
+                always {
+                  sh 'echo \'dummy text\''
+                }
+              }
+            }
+          }
         }
-    }
-    stage('first-solo') {
-      steps {
-        sh 'echo \'dummy text\''
+        stage('MemCheck') {
+          stages
+          {
+            stage('Build')
+            {
+              steps {
+                sh 'echo \'dummy text\''
+              }
+            }
+            stage('Memcheck')
+            {          
+              steps {
+                sh 'echo \'dummy text\''
+              }
+              post {
+                success {
+                  sh 'echo \'dummy text\''
+                }
+              }             
+            }
+          }
+        }
+        stage('Android') {
+          stages
+          {
+            stage('Build')
+            {
+              steps {
+                sh 'echo \'dummy text\''
+              }
+            }
+          }
+        }
+        stage('iOS') {
+          stages
+          {
+            stage('Build')
+            {
+              steps {
+                sh 'echo \'dummy text\''
+              }
+            }           
+          }
+        }
       }
-    }
+    }  
   }
 }
