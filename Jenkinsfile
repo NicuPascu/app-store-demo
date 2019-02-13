@@ -70,8 +70,6 @@ pipeline {
     always {
       junit(testResults: '**/target/surefire-reports/TEST-*.xml', allowEmptyResults: true)
       archive '**/target/*.jar'
-
     }
-
   }
 }
