@@ -60,6 +60,5 @@ pipeline {
       archive '**/target/*.jar'
 
     }
-
   }
 }
