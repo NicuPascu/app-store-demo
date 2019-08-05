@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TestThisWillFailAbunch {
     @Test
     public void aFailingTest() {
-         assertTrue("I expected this to pass!", true);
+         assertTrue("I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail! I expected this to fail!", false);
     }
 
     @Ignore
